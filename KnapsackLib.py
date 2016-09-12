@@ -11,6 +11,7 @@ def knapsack(vals, sizes, capacity):
     a = np.zeros((n_items+1, capacity+1),dtype=int)
 
     for a_items in range(1,n_items+1):
+        print("Working on item %s of %s" % (a_items, n_items))
         i_new_item = a_items - 1
         for cap in range(1,capacity+1):  # when capacity is zero, maximal value is also zero
 
@@ -23,6 +24,5 @@ def knapsack(vals, sizes, capacity):
 
             a[a_items, cap] = max(val_if_new_item_not_used,
                                               val_if_new_item_used)
-
 
     return a[n_items, capacity]
